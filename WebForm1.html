@@ -1,0 +1,156 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="lyss.WebForm1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body bgcolor="green">
+    <form id="form1" runat="server">
+    <div>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Album</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+    }
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .thumbnail {
+        margin: 10px;
+        cursor: pointer;
+    }
+    .thumbnail img {
+        width: 200px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.9);
+    }
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+    }
+    .modal-content img {
+        width: 100%;
+        height: auto;
+    }
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Photo Album</h1>
+    <div class="gallery">
+        <div class="thumbnail" onclick="openModal();currentSlide(1)">
+            <img src="ali.jpg" alt="Image 1">
+        </div>
+        <div class="thumbnail" onclick="openModal();currentSlide(2)">
+            <img src="alii.jpg" alt="Image 2">
+        </div>
+        <div class="thumbnail" onclick="openModal();currentSlide(1)">
+            <img src="aliii.jpg" alt="Image 1">
+        </div>
+        <div class="thumbnail" onclick="openModal();currentSlide(1)">
+            <img src="ali.jpg" alt="Image 1">
+        </div>
+        <div class="thumbnail" onclick="openModal();currentSlide(2)">
+            <img src="alii.jpg" alt="Image 2">
+        </div>
+        <div class="thumbnail" onclick="openModal();currentSlide(1)">
+            <img src="aliii.jpg" alt="Image 1">
+        </div>
+        <!-- Add more thumbnails as needed -->
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img src="image1.jpg" alt="Image 1">
+            <!-- Add more images as needed -->
+        </div>
+    </div>
+</div>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function openModal() {
+        document.getElementById("myModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+    }
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        const slides = document.getElementsByClassName("modal-content");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex-1].style.display = "block";
+    }
+</script>
+    </div>
+    </form>
+</body>
+</html>

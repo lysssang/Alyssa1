@@ -1,0 +1,76 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="lyss.index" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+    .container {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        text-align: center;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    .logo {
+        display: block;
+        margin: 0 auto 20px;
+        width: 150px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <img src="2.jpg" alt="Logo" class="logo">
+    <h2>Login Form</h2>
+        </div>
+        <label for="username">Username</label>
+    <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" placeholder="Enter Username"></asp:TextBox>
+&nbsp;<label for="password">Password</label>
+       
+    <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" placeholder="Enter Password"></asp:TextBox>
+
+      
+    <asp:Button ID="Button1" runat="server" Text="Login" OnClick="Button1_Click" />
+&nbsp;</form>
+</div>
+
+    </div>
+    </form>
+</body>
+</html>
